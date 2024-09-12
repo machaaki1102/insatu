@@ -19,3 +19,4 @@ def save_excel_as_pdf(excel_path, pdf_path, row_start, row_end, col_start, col_e
 
 # 使用例
 save_excel_as_pdf("目的_旧バージョン.xlsx", "output.pdf", 1, 10, 1, 25)  # A1:G100
+
