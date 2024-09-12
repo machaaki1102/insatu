@@ -4,20 +4,6 @@ import streamlit as st
 import os
 
 
-# 指定されたパスを確認
-file_path = "viv.xlsx"
-file_path_2 = "output.pdf"
-
-# ファイルの存在確認
-if os.path.exists(file_path):
-    # 絶対パスを取得して表示
-    absolute_path = os.path.abspath(file_path)
-    st.write(f"File exists at: {absolute_path}")
-else:
-    st.write("File does not exist at the specified path.")
-
-
-
 # PDFに変換する関数
 def save_excel_as_pdf(excel_path, pdf_path, row_start, row_end, col_start, col_end):
     pythoncom.CoInitialize()  # COMライブラリの初期化
@@ -35,6 +21,23 @@ def save_excel_as_pdf(excel_path, pdf_path, row_start, row_end, col_start, col_e
     ws.ExportAsFixedFormat(0, pdf_path)
     wb.Close(SaveChanges=False)
     excel.Quit()
+
+
+
+
+# 指定されたパスを確認
+file_path = "viv.xlsx"
+file_path_2 = "output.pdf"
+
+# ファイルの存在確認
+if os.path.exists(file_path):
+    # 絶対パスを取得して表示
+    absolute_path = os.path.abspath(file_path)
+    st.write(f"File exists at: {absolute_path}")
+else:
+    st.write("File does not exist at the specified path.")
+
+
 
 # StreamlitアプリのUIを作成
 st.title("Excel to PDF Converter")
