@@ -23,14 +23,14 @@ def save_excel_as_pdf(excel_path, pdf_path, row_start, row_end, col_start, col_e
 st.title("Excel to PDF Converter")
 
 # Excelファイルのパスを入力またはファイル選択
-excel_path = st.text_input("Enter Excel file path:", "your_excel_file.xlsx")
+excel_path = st.text_input("Enter Excel file path:", "目的_旧バージョン.xlsx")
 pdf_path = st.text_input("Enter output PDF file path:", "output.pdf")
 
 # 行と列の範囲を入力
 row_start = st.number_input("Start Row", min_value=1, value=1)
-row_end = st.number_input("End Row", min_value=1, value=100)
+row_end = st.number_input("End Row", min_value=1, value=25)
 col_start = st.number_input("Start Column (A=1, B=2, ...)", min_value=1, value=1)
-col_end = st.number_input("End Column (A=1, B=2, ...)", min_value=1, value=7)
+col_end = st.number_input("End Column (A=1, B=2, ...)", min_value=1, value=10)
 
 # Excelファイルのパスが有効かどうかチェック
 if not os.path.exists(excel_path):
