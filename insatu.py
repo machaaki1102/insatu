@@ -48,3 +48,15 @@ else:
             pdf_data = f.read()
         st.download_button(label="Download PDF", data=pdf_data, file_name=os.path.basename(pdf_path), mime='application/pdf')
 
+import os
+
+# 指定されたパスを確認
+file_path = "viv.xlsx"
+
+# ファイルの存在確認
+if os.path.exists(file_path):
+    # 絶対パスを取得して表示
+    absolute_path = os.path.abspath(file_path)
+    print(f"File exists at: {absolute_path}")
+else:
+    print("File does not exist at the specified path.")
