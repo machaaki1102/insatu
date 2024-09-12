@@ -70,7 +70,7 @@ import os
 
 import openpyxl
 
-wb = openpyxl.load_workbook('bb_tem_finish_insat.xlsx')
+wb = openpyxl.load_workbook('bb_tem_finish_insatu.xlsx')
 ws = wb['Sheet1']
 
 # 行数と列数を変数として定義
