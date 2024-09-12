@@ -69,6 +69,9 @@ import os
 #         st.download_button(label="Download PDF", data=pdf_data, file_name=os.path.basename(pdf_path), mime='application/pdf')
 
 import openpyxl
+# 列番号をアルファベットに変換する
+from openpyxl.utils import get_column_letter
+
 
 wb = openpyxl.load_workbook('bb_tem_finish_insatu.xlsx')
 ws = wb['BB_テンプレ']
@@ -79,14 +82,13 @@ row_end = 42
 col_start = 1  # A列は1
 col_end = 163    # E列は5
 
-# 列番号をアルファベットに変換する
-from openpyxl.utils import get_column_letter
 
 col_start_letter = get_column_letter(col_start)
 col_end_letter = get_column_letter(col_end)
 
 # print_areaを設定
 ws.print_area = f'{col_start_letter}{row_start}:{col_end_letter}{row_end}'
+ws.page_breaks.append(ws.breaks.add_page_break(col=13))
 
 wb.save('output.xlsx')
 
