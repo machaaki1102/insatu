@@ -6,7 +6,7 @@ import os
 
 # 指定されたパスを確認
 file_path = "viv.xlsx"
-
+file_path_2 = "output.pdf"
 
 # ファイルの存在確認
 if os.path.exists(file_path):
@@ -50,7 +50,7 @@ col_start = st.number_input("Start Column (A=1, B=2, ...)", min_value=1, value=1
 col_end = st.number_input("End Column (A=1, B=2, ...)", min_value=1, value=10)
 
 excel_path = os.path.abspath(file_path)
-pdf_path = os.path.abspath(file_path)
+pdf_path = os.path.abspath(file_path_2)
 
 
 # Excelファイルのパスが有効かどうかチェック
