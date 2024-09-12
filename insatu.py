@@ -1,4 +1,4 @@
-import win32com.client as win32
+#import win32com.client as win32
 import pythoncom
 import streamlit as st
 import os
@@ -21,8 +21,6 @@ def save_excel_as_pdf(excel_path, pdf_path, row_start, row_end, col_start, col_e
     ws.ExportAsFixedFormat(0, pdf_path)
     wb.Close(SaveChanges=False)
     excel.Quit()
-
-
 
 
 # 指定されたパスを確認
@@ -70,3 +68,39 @@ else:
             pdf_data = f.read()
         st.download_button(label="Download PDF", data=pdf_data, file_name=os.path.basename(pdf_path), mime='application/pdf')
 
+import openpyxl
+
+wb = openpyxl.load_workbook('bb_tem_finish_insat.xlsx')
+ws = wb['Sheet1']
+
+# 行数と列数を変数として定義
+row_start = 1
+row_end = 42
+col_start = 1  # A列は1
+col_end = 163    # E列は5
+
+# 列番号をアルファベットに変換する
+from openpyxl.utils import get_column_letter
+
+col_start_letter = get_column_letter(col_start)
+col_end_letter = get_column_letter(col_end)
+
+# print_areaを設定
+ws.print_area = f'{col_start_letter}{row_start}:{col_end_letter}{row_end}'
+
+wb.save('output.xlsx')
+
+
+with open('output.xlsx', 'rb') as file:
+        mokuji_ekihi = file.read()
+
+st.download_button(
+        label="Download Excel File＜BB＞",  # ボタンのラベル
+        data=mokuji_ekihi,  # ダウンロードするデータ
+        file_name='output.xlsx',  # ダウンロード時のファイル名
+        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'  # MIMEタイプを指定
+    )
+
+ws.print_area = 'A1:E5'
+
+wb.save('output.xlsx')
