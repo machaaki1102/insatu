@@ -100,7 +100,3 @@ st.download_button(
         file_name='output.xlsx',  # ダウンロード時のファイル名
         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'  # MIMEタイプを指定
     )
-
-ws.print_area = 'A1:E5'
-
-wb.save('output.xlsx')
