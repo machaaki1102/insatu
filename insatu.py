@@ -6,7 +6,7 @@ import os
 
 # PDFに変換する関数
 def save_excel_as_pdf(excel_path, pdf_path, row_start, row_end, col_start, col_end):
-    pythoncom.CoInitialize()  # COMライブラリの初期化
+#    pythoncom.CoInitialize()  # COMライブラリの初期化
     excel = win32.Dispatch("Excel.Application")
     excel.Visible = False
     wb = excel.Workbooks.Open(excel_path)
