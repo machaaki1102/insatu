@@ -96,7 +96,6 @@ for col in range(cols_per_page, col_end, cols_per_page):
 
 ws.col_breaks.append(Break(id=13))
 
-
 wb.save('output.xlsx')
 
 
