@@ -88,19 +88,34 @@ col_end_letter = get_column_letter(col_end)
 
 # print_areaを設定
 ws.print_area = f'{col_start_letter}{row_start}:{col_end_letter}{row_end}'
+
 # 垂直改ページを設定 (例: 4列目)
 # 13列ごとに垂直改ページを追加
-cols_per_page = col_end
-for col in range(cols_per_page, col_end, cols_per_page):
+# cols_per_page = col_end
+
+# for col in range(cols_per_page, col_end, cols_per_page):
+#     ws.col_breaks.append(Break(id=col))
+
+# wb.save('output.xlsx')
+
+# 13列ごとに垂直改ページを追加
+cols_per_page = 13  # 13列ごとに改ページ
+
+for col in range(cols_per_page, col_end + 1, cols_per_page):
     ws.col_breaks.append(Break(id=col))
 
-ws.col_breaks.append(Break(id=13))
-
+# Excelファイルを保存
 wb.save('output.xlsx')
+
 
 
 with open('output.xlsx', 'rb') as file:
         mokuji_ekihi = file.read()
+
+
+# ファイルを保存
+
+
 
 st.download_button(
         label="Download Excel File＜BB＞",  # ボタンのラベル
