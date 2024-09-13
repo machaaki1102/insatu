@@ -104,6 +104,10 @@ cols_per_page = 13  # 13列ごとに改ページ
 for col in range(cols_per_page, col_end + 1, cols_per_page):
     ws.col_breaks.append(Break(id=col))
 
+# 印刷時の拡大・縮小を85%に設定
+ws.page_setup.scale = 85
+
+
 # Excelファイルを保存
 wb.save('output.xlsx')
 
