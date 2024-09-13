@@ -80,7 +80,7 @@ ws = wb['BB_テンプレ']
 row_start = 1
 row_end = 42
 col_start = 1  # A列は1
-col_end = 163    # E列は5
+col_end = 104    # E列は5
 
 
 col_start_letter = get_column_letter(col_start)
